@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-budget",
+  "name": "goit-react-currency-exchange",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AlexeySapr.github.io/goit-react-hw-budget",
+  "homepage": "https://AlexeySapr.github.io/goit-react-currency-exchange",
   "dependencies": {
     "bootstrap": "^5.1.3",
     "gh-pages": "^3.2.3",
