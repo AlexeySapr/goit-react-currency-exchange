@@ -1,0 +1,9 @@
+.container {
+  margin-top: 1rem;
+}
+
+.form-label {
+  font-size: 1.4rem;
+  color: #171718;
+  cursor: pointer;
+}

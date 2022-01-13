@@ -1,0 +1,30 @@
+.list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* .list li {
+  outline: 1px solid teal;
+} */
+
+.budgetItem {
+  color: green;
+}
+
+.expensesItem {
+  color: red;
+}
+
+li p:first-child {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+li p:last-child {
+  font-size: 3rem;
+}
