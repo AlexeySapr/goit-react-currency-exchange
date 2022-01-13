@@ -10,6 +10,7 @@ import ExpenseCard from './components/expenseCard/ExpenseCard';
 import InfoSection from './components/infoSection/InfoSection';
 import ExpenseInfoSection from './components/expenseInfoSection/ExpenseInfoSection';
 import { nanoid } from 'nanoid';
+import FormCard from './components/formCard/FormCard';
 
 const App = () => {
   const [budget, setBudget] = useState(() => {
@@ -45,27 +46,59 @@ const App = () => {
 
   return (
     <>
-      <AppHeader title={'Budget calculator'} />
+      <AppHeader title={'Currency exchange'} />
       <Container>
-        <Row md={4}>
+        <Row>
+          <Section>
+            <FormCard num={1} />
+          </Section>
+        </Row>
+        {/* *********************** */}
+        <Row>
+          <Col md={4}>
+            <Section>
+              <FormCard num={2} />
+            </Section>
+          </Col>
+          <Col md={4}>
+            <Section>
+              <FormCard num={3} />
+            </Section>
+          </Col>
+          <Col md={4}>
+            <Section>
+              <FormCard num={4} />
+            </Section>
+          </Col>
+        </Row>
+        {/* *********************** */}
+        <Row>
+          <Section>
+            <FormCard num={5} />
+          </Section>
+        </Row>
+
+        <Row>
+          <Section>
+            <FormCard num={6} />
+          </Section>
+        </Row>
+
+        {/* <Row md={4}>
           <Col md={5}>
             <Section>
-              <BudgetCard handleBudget={handleBudget} />
+              <FormCard />
             </Section>
             <Section>
-              <ExpenseCard handleExpenses={handleExpenses} />
+              <FormCard />
             </Section>
           </Col>
           <Col md={7}>
-            <InfoSection budget={budget} expenses={allExpenses} />
-            {expenses.length > 0 && (
-              <ExpenseInfoSection
-                expenses={expenses}
-                delItems={handleDelItems}
-              />
-            )}
+            <Section>
+              <FormCard />
+            </Section>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </>
   );
