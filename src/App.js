@@ -7,10 +7,11 @@ import Section from './components/section/Section';
 import AppHeader from './components/appHeader/AppHeader';
 import BudgetCard from './components/budgetCard/BudgetCard';
 import ExpenseCard from './components/expenseCard/ExpenseCard';
-import InfoSection from './components/infoSection/InfoSection';
 import ExpenseInfoSection from './components/expenseInfoSection/ExpenseInfoSection';
 import { nanoid } from 'nanoid';
 import FormCard from './components/formCard/FormCard';
+import CurrentRate from './components/currentRate/CurrentRate';
+import Title from './components/title/Title';
 
 const App = () => {
   const [budget, setBudget] = useState(() => {
@@ -50,16 +51,18 @@ const App = () => {
       <Container>
         <Row>
           <Section>
-            <FormCard num={1} />
+            <CurrentRate />
           </Section>
         </Row>
+
+        <Row>
+          <Section>
+            <Title text={'Exchange values'} />
+          </Section>
+        </Row>
+
         {/* *********************** */}
         <Row>
-          <Col md={4}>
-            <Section>
-              <FormCard num={2} />
-            </Section>
-          </Col>
           <Col md={4}>
             <Section>
               <FormCard num={3} />
@@ -70,13 +73,13 @@ const App = () => {
               <FormCard num={4} />
             </Section>
           </Col>
+          <Col md={4}>
+            <Section>
+              <FormCard num={5} />
+            </Section>
+          </Col>
         </Row>
         {/* *********************** */}
-        <Row>
-          <Section>
-            <FormCard num={5} />
-          </Section>
-        </Row>
 
         <Row>
           <Section>

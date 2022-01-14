@@ -1,0 +1,14 @@
+.currentList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.currentListItem {
+  text-align: center;
+}
+
+.currentListItem p {
+  font-size: 1rem;
+  font-weight: normal;
+}
