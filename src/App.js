@@ -6,12 +6,11 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import Section from './components/section/Section';
 import AppHeader from './components/appHeader/AppHeader';
 
-import ExpenseCard from './components/expenseCard/ExpenseCard';
-
 import { nanoid } from 'nanoid';
 import FormCard from './components/formCard/FormCard';
 import CurrentRate from './components/currentRate/CurrentRate';
 import Title from './components/title/Title';
+import MainSection from './components/mainSection/MainSection';
 
 const App = () => {
   const [budget, setBudget] = useState(() => {
@@ -63,23 +62,7 @@ const App = () => {
 
         {/* *********************** */}
         <Row>
-          <Col md={5}>
-            <Section>
-              <ExpenseCard />
-            </Section>
-          </Col>
-          <Col md={2}>
-            <Section>
-              <FormCard>
-                <Button variant="light">Change</Button>
-              </FormCard>
-            </Section>
-          </Col>
-          <Col md={5}>
-            <Section>
-              <ExpenseCard />
-            </Section>
-          </Col>
+          <MainSection />
         </Row>
         {/* *********************** */}
 
@@ -90,22 +73,6 @@ const App = () => {
             </FormCard>
           </Section>
         </Row>
-
-        {/* <Row md={4}>
-          <Col md={5}>
-            <Section>
-              <FormCard />
-            </Section>
-            <Section>
-              <FormCard />
-            </Section>
-          </Col>
-          <Col md={7}>
-            <Section>
-              <FormCard />
-            </Section>
-          </Col>
-        </Row> */}
       </Container>
     </>
   );
