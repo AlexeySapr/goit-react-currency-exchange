@@ -1,0 +1,14 @@
+.formBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formSelect {
+  width: 100px;
+  border: none;
+}
+
+.formSelect:focus {
+  box-shadow: none;
+}

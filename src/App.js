@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import Section from './components/section/Section';
 import AppHeader from './components/appHeader/AppHeader';
-import BudgetCard from './components/budgetCard/BudgetCard';
+
 import ExpenseCard from './components/expenseCard/ExpenseCard';
-import ExpenseInfoSection from './components/expenseInfoSection/ExpenseInfoSection';
+
 import { nanoid } from 'nanoid';
 import FormCard from './components/formCard/FormCard';
 import CurrentRate from './components/currentRate/CurrentRate';
@@ -63,19 +63,21 @@ const App = () => {
 
         {/* *********************** */}
         <Row>
-          <Col md={4}>
+          <Col md={5}>
             <Section>
-              <FormCard num={3} />
+              <ExpenseCard />
             </Section>
           </Col>
-          <Col md={4}>
+          <Col md={2}>
             <Section>
-              <FormCard num={4} />
+              <FormCard>
+                <Button variant="light">Change</Button>
+              </FormCard>
             </Section>
           </Col>
-          <Col md={4}>
+          <Col md={5}>
             <Section>
-              <FormCard num={5} />
+              <ExpenseCard />
             </Section>
           </Col>
         </Row>
@@ -83,7 +85,9 @@ const App = () => {
 
         <Row>
           <Section>
-            <FormCard num={6} />
+            <FormCard>
+              <Button variant="primary">Exchange</Button>
+            </FormCard>
           </Section>
         </Row>
 
