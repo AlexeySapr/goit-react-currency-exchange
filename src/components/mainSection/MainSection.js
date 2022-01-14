@@ -4,38 +4,50 @@ import { Col, Button } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';
 import FormCard from '../formCard/FormCard';
 
+const multFrom = 10;
+const moltTo = 3;
+
 const MainSection = () => {
-  const [fromData, setFromData] = useState({ currency: 'UAH', value: 0 });
-  const [toData, setToData] = useState({ currency: 'UAH', value: 0 });
+  const [fromCurrency, setFromCurrency] = useState('UAH');
+  const [fromValue, setFromValue] = useState(0);
+  const [toCurrency, setToCurrency] = useState('UAH');
+  const [toValue, setToValue] = useState(0);
 
-  const handleFromCurrency = newFromData => {
-    setFromData({ ...fromData, currency: newFromData });
+  const handleFromCurrency = newCurrency => {
+    setFromCurrency(newCurrency);
   };
 
-  const handleToCurrency = newToData => {
-    setToData({ ...toData, currency: newToData });
+  const handleToCurrency = newCurrency => {
+    setToCurrency(newCurrency);
   };
 
-  const handleFromValue = newFromData => {
-    setFromData({ ...fromData, value: newFromData });
+  const handleFromValue = newValue => {
+    setFromValue(newValue);
+    setToValue(newValue * multFrom);
   };
 
-  const handleToValue = newToData => {
-    setToData({ ...toData, value: newToData });
+  const handleToValue = newValue => {
+    setToValue(newValue);
+    setFromValue(newValue * moltTo);
   };
 
   const changeForms = () => {
-    const tempData = fromData;
-    setFromData({ ...toData });
-    setToData({ ...tempData });
+    const tempCurrency = fromCurrency;
+    const tempValue = fromValue;
+
+    setFromCurrency(toCurrency);
+    setFromValue(toValue);
+
+    setToCurrency(tempCurrency);
+    setToValue(tempValue);
   };
 
   return (
     <>
       <Col md={5}>
         <ExpenseCard
-          select={fromData.currency}
-          currency={fromData.value}
+          selectCurrency={fromCurrency}
+          currencyValue={fromValue}
           handleCurrency={handleFromCurrency}
           handleValue={handleFromValue}
         />
@@ -49,8 +61,8 @@ const MainSection = () => {
       </Col>
       <Col md={5}>
         <ExpenseCard
-          select={toData.currency}
-          currency={toData.value}
+          selectCurrency={toCurrency}
+          currencyValue={toValue}
           handleCurrency={handleToCurrency}
           handleValue={handleToValue}
         />

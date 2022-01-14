@@ -2,7 +2,12 @@ import { Form } from 'react-bootstrap';
 import FormCard from '../formCard/FormCard';
 import s from './ExpenseCard.module.css';
 
-const ExpenseCard = ({ select, currency, handleCurrency, handleValue }) => {
+const ExpenseCard = ({
+  selectCurrency,
+  currencyValue,
+  handleCurrency,
+  handleValue,
+}) => {
   return (
     <FormCard>
       <div className={s.formBox}>
@@ -10,7 +15,7 @@ const ExpenseCard = ({ select, currency, handleCurrency, handleValue }) => {
           size="lg"
           className={s.formSelect}
           onChange={event => handleCurrency(event.currentTarget.value)}
-          value={select}
+          value={selectCurrency}
         >
           <option value="UAH">UAH</option>
           <option value="EUR">EUR</option>
@@ -21,7 +26,7 @@ const ExpenseCard = ({ select, currency, handleCurrency, handleValue }) => {
           type="number"
           size="lg"
           name="name"
-          value={currency}
+          value={currencyValue}
           onChange={event => handleValue(event.currentTarget.value)}
         />
       </div>
