@@ -36,15 +36,16 @@ const MainSection = () => {
     const tempValue = fromValue;
 
     setFromCurrency(toCurrency);
-    setFromValue(toValue);
-
     setToCurrency(tempCurrency);
+
+    setFromValue(toValue);
     setToValue(tempValue);
   };
 
   return (
     <>
       <Col md={5}>
+        <h3>Сhanging</h3>
         <ExpenseCard
           selectCurrency={fromCurrency}
           currencyValue={fromValue}
@@ -54,12 +55,13 @@ const MainSection = () => {
       </Col>
       <Col md={2}>
         <FormCard>
-          <Button variant="light" onClick={changeForms}>
+          <Button variant="success" onClick={changeForms}>
             Change
           </Button>
         </FormCard>
       </Col>
       <Col md={5}>
+        <h3>Geting</h3>
         <ExpenseCard
           selectCurrency={toCurrency}
           currencyValue={toValue}
