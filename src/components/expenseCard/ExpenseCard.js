@@ -14,7 +14,7 @@ const ExpenseCard = ({
         <Form.Select
           size="lg"
           className={s.formSelect}
-          onChange={event => handleCurrency(event.currentTarget.value)}
+          onChange={event => handleCurrency(event.target.value)}
           value={selectCurrency}
         >
           <option value="UAH">UAH</option>
@@ -22,12 +22,13 @@ const ExpenseCard = ({
           <option value="USD">USD</option>
           <option value="RUB">RUB</option>
         </Form.Select>
+
         <Form.Control
           type="number"
+          min={0}
           size="lg"
-          name="name"
           value={currencyValue}
-          onChange={event => handleValue(event.currentTarget.value)}
+          onChange={event => handleValue(event.target.value)}
         />
       </div>
     </FormCard>

@@ -4,8 +4,18 @@ import { Col, Button } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';
 import FormCard from '../formCard/FormCard';
 
-const multFrom = 10;
-const moltTo = 3;
+const currencyRate = {
+  EUR: 1,
+  USD: 1.1228,
+  UAH: 32,
+  RUB: 85.3333,
+};
+
+const calculate = (changingCur, getingCur, value) => {
+  const newValue =
+    (currencyRate[getingCur] / currencyRate[changingCur]) * value;
+  return Math.round(newValue * 100) / 100;
+};
 
 const MainSection = () => {
   const [fromCurrency, setFromCurrency] = useState('UAH');
@@ -15,31 +25,40 @@ const MainSection = () => {
 
   const handleFromCurrency = newCurrency => {
     setFromCurrency(newCurrency);
+
+    const result = calculate(newCurrency, toCurrency, fromValue);
+    setToValue(result);
   };
 
   const handleToCurrency = newCurrency => {
     setToCurrency(newCurrency);
+
+    const result = calculate(fromCurrency, newCurrency, fromValue);
+    setToValue(result);
   };
 
   const handleFromValue = newValue => {
     setFromValue(newValue);
-    setToValue(newValue * multFrom);
+
+    const result = calculate(fromCurrency, toCurrency, newValue);
+    setToValue(result);
   };
 
   const handleToValue = newValue => {
     setToValue(newValue);
-    setFromValue(newValue * moltTo);
+
+    const result = calculate(toCurrency, fromCurrency, newValue);
+    setFromValue(result);
   };
 
   const changeForms = () => {
     const tempCurrency = fromCurrency;
-    const tempValue = fromValue;
 
     setFromCurrency(toCurrency);
     setToCurrency(tempCurrency);
 
-    setFromValue(toValue);
-    setToValue(tempValue);
+    const result = calculate(toCurrency, fromCurrency, fromValue);
+    setToValue(result);
   };
 
   return (
