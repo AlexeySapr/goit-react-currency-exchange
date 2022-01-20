@@ -27,6 +27,7 @@ const MainSection = () => {
   const [toValue, setToValue] = useState(0);
 
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
+  const changingValue = useSelector(selectors.getСhangingValue);
   const dispatch = useDispatch();
 
   // const handleFromCurrency = newCurrency => {
@@ -73,11 +74,11 @@ const MainSection = () => {
         <h3>Сhanging</h3>
         <ExpenseCard
           selectCurrency={changingCurrency}
-          currencyValue={fromValue}
+          currencyValue={changingValue}
           handleCurrency={currency =>
             dispatch(actions.changeFromCurrency(currency))
           }
-          handleValue={handleFromValue}
+          handleValue={value => dispatch(actions.changeFromValue(value))}
         />
       </Col>
       <Col md={2}>

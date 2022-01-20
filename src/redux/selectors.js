@@ -1,3 +1,5 @@
-const getСhangingCurrency = state => state.changingForm;
+const getСhangingCurrency = state =>
+  state.currencyExchange.changingForm.currency;
+const getСhangingValue = state => state.currencyExchange.changingForm.value;
 
-export { getСhangingCurrency };
+export { getСhangingCurrency, getСhangingValue };
