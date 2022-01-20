@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import * as selectors from '../../redux/selectors';
+import * as actions from '../../redux/actions';
 
 import { Col, Button } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';
@@ -23,12 +26,15 @@ const MainSection = () => {
   const [toCurrency, setToCurrency] = useState('UAH');
   const [toValue, setToValue] = useState(0);
 
-  const handleFromCurrency = newCurrency => {
-    setFromCurrency(newCurrency);
+  const changingCurrency = useSelector(selectors.getСhangingCurrency);
+  const dispatch = useDispatch();
 
-    const result = calculate(newCurrency, toCurrency, fromValue);
-    setToValue(result);
-  };
+  // const handleFromCurrency = newCurrency => {
+  //   setFromCurrency(newCurrency);
+
+  //   const result = calculate(newCurrency, toCurrency, fromValue);
+  //   setToValue(result);
+  // };
 
   const handleToCurrency = newCurrency => {
     setToCurrency(newCurrency);
@@ -66,9 +72,11 @@ const MainSection = () => {
       <Col md={5}>
         <h3>Сhanging</h3>
         <ExpenseCard
-          selectCurrency={fromCurrency}
+          selectCurrency={changingCurrency}
           currencyValue={fromValue}
-          handleCurrency={handleFromCurrency}
+          handleCurrency={currency =>
+            dispatch(actions.changeFromCurrency(currency))
+          }
           handleValue={handleFromValue}
         />
       </Col>
