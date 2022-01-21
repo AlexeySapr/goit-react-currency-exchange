@@ -1,5 +1,9 @@
 import './App.css';
 
+import { useSelector } from 'react-redux';
+import * as selectors from './redux/selectors';
+import { reserve } from './services/reserve';
+
 import { Container, Row, Button } from 'react-bootstrap';
 
 import Section from './components/section/Section';
@@ -11,6 +15,22 @@ import Title from './components/title/Title';
 import MainSection from './components/mainSection/MainSection';
 
 const App = () => {
+  const getingValue = useSelector(selectors.getGetingValue);
+  const getingCurrency = useSelector(selectors.getGetingCurrency);
+
+  const getBtnTitle = value => {
+    if (value === 0) {
+      return 'Enter the amount';
+    }
+    if (value > reserve[getingCurrency]) {
+      return 'Not enough reserve';
+    } else {
+      return 'Exchange';
+    }
+  };
+
+  const exchangeBtnTitle = getBtnTitle(getingValue);
+
   return (
     <>
       <AppHeader title={'Currency exchange'} />
@@ -36,7 +56,14 @@ const App = () => {
         <Row>
           <Section>
             <FormCard>
-              <Button variant="primary">Exchange</Button>
+              <Button
+                variant="primary"
+                disabled={
+                  getingValue === 0 || getingValue > reserve[getingCurrency]
+                }
+              >
+                {exchangeBtnTitle}
+              </Button>
             </FormCard>
           </Section>
         </Row>

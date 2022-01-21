@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import exchangeReduser from './redusers/exchangeReduser';
+import exchangeReduser from './exchangeReduser';
 
 const rootReducer = combineReducers({
   currencyExchange: exchangeReduser,

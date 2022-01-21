@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as selectors from '../../redux/selectors';
 import * as actions from '../../redux/actions';

@@ -1,8 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
-import * as actions from '../actions';
-/************************************** */
-import { calculate } from '../../services/calculate';
-/************************************** */
+import * as actions from './actions';
+import { calculate } from '../services/calculate';
 
 const initState = {
   changingCurrency: 'UAH',
