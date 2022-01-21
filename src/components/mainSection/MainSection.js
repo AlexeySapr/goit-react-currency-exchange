@@ -16,44 +16,6 @@ const MainSection = () => {
 
   const dispatch = useDispatch();
 
-  // const handleFromCurrency = newCurrency => {
-  //   setFromCurrency(newCurrency);
-
-  //   const result = calculate(newCurrency, toCurrency, fromValue);
-  //   setToValue(result);
-  // };
-
-  // const handleToCurrency = newCurrency => {
-  //   setToCurrency(newCurrency);
-
-  //   const result = calculate(fromCurrency, newCurrency, fromValue);
-  //   setToValue(result);
-  // };
-
-  // const handleFromValue = newValue => {
-  //   setFromValue(newValue);
-
-  //   const result = calculate(fromCurrency, toCurrency, newValue);
-  //   setToValue(result);
-  // };
-
-  // const handleToValue = newValue => {
-  //   setToValue(newValue);
-
-  //   const result = calculate(toCurrency, fromCurrency, newValue);
-  //   setFromValue(result);
-  // };
-
-  // const changeForms = () => {
-  //   const tempCurrency = fromCurrency;
-
-  //   setFromCurrency(toCurrency);
-  //   setToCurrency(tempCurrency);
-
-  //   const result = calculate(toCurrency, fromCurrency, fromValue);
-  //   setToValue(result);
-  // };
-
   return (
     <>
       <Col md={5}>
