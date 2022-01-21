@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as selectors from '../../redux/selectors';
 import * as actions from '../../redux/actions';
@@ -21,13 +21,17 @@ const calculate = (changingCur, getingCur, value) => {
 };
 
 const MainSection = () => {
-  const [fromCurrency, setFromCurrency] = useState('UAH');
-  const [fromValue, setFromValue] = useState(0);
-  const [toCurrency, setToCurrency] = useState('UAH');
-  const [toValue, setToValue] = useState(0);
+  // const [fromCurrency, setFromCurrency] = useState('UAH');
+  // const [fromValue, setFromValue] = useState(0);
+  // const [toCurrency, setToCurrency] = useState('UAH');
+  // const [toValue, setToValue] = useState(0);
 
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
   const changingValue = useSelector(selectors.getСhangingValue);
+
+  const getingCurrency = useSelector(selectors.getGetingCurrency);
+  const getingValue = useSelector(selectors.getGetingValue);
+
   const dispatch = useDispatch();
 
   // const handleFromCurrency = newCurrency => {
@@ -37,36 +41,36 @@ const MainSection = () => {
   //   setToValue(result);
   // };
 
-  const handleToCurrency = newCurrency => {
-    setToCurrency(newCurrency);
+  // const handleToCurrency = newCurrency => {
+  //   setToCurrency(newCurrency);
 
-    const result = calculate(fromCurrency, newCurrency, fromValue);
-    setToValue(result);
-  };
+  //   const result = calculate(fromCurrency, newCurrency, fromValue);
+  //   setToValue(result);
+  // };
 
-  const handleFromValue = newValue => {
-    setFromValue(newValue);
+  // const handleFromValue = newValue => {
+  //   setFromValue(newValue);
 
-    const result = calculate(fromCurrency, toCurrency, newValue);
-    setToValue(result);
-  };
+  //   const result = calculate(fromCurrency, toCurrency, newValue);
+  //   setToValue(result);
+  // };
 
-  const handleToValue = newValue => {
-    setToValue(newValue);
+  // const handleToValue = newValue => {
+  //   setToValue(newValue);
 
-    const result = calculate(toCurrency, fromCurrency, newValue);
-    setFromValue(result);
-  };
+  //   const result = calculate(toCurrency, fromCurrency, newValue);
+  //   setFromValue(result);
+  // };
 
-  const changeForms = () => {
-    const tempCurrency = fromCurrency;
+  // const changeForms = () => {
+  //   const tempCurrency = fromCurrency;
 
-    setFromCurrency(toCurrency);
-    setToCurrency(tempCurrency);
+  //   setFromCurrency(toCurrency);
+  //   setToCurrency(tempCurrency);
 
-    const result = calculate(toCurrency, fromCurrency, fromValue);
-    setToValue(result);
-  };
+  //   const result = calculate(toCurrency, fromCurrency, fromValue);
+  //   setToValue(result);
+  // };
 
   return (
     <>
@@ -83,18 +87,18 @@ const MainSection = () => {
       </Col>
       <Col md={2}>
         <FormCard>
-          <Button variant="success" onClick={changeForms}>
-            Change
-          </Button>
+          <Button variant="success">Change</Button>
         </FormCard>
       </Col>
       <Col md={5}>
         <h3>Geting</h3>
         <ExpenseCard
-          selectCurrency={toCurrency}
-          currencyValue={toValue}
-          handleCurrency={handleToCurrency}
-          handleValue={handleToValue}
+          selectCurrency={getingCurrency}
+          currencyValue={getingValue}
+          handleCurrency={currency =>
+            dispatch(actions.changeToCurrency(currency))
+          }
+          handleValue={value => dispatch(actions.changeToValue(value))}
         />
       </Col>
     </>
