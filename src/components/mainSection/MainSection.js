@@ -87,7 +87,12 @@ const MainSection = () => {
       </Col>
       <Col md={2}>
         <FormCard>
-          <Button variant="success">Change</Button>
+          <Button
+            variant="success"
+            onClick={() => dispatch(actions.changeCurrency())}
+          >
+            Change
+          </Button>
         </FormCard>
       </Col>
       <Col md={5}>
