@@ -47,11 +47,9 @@ const App = () => {
           </Section>
         </Row>
 
-        {/* *********************** */}
         <Row>
           <MainSection />
         </Row>
-        {/* *********************** */}
 
         <Row>
           <Section>

@@ -1,0 +1,15 @@
+.button {
+  background-color: inherit;
+  border: none;
+  fill: var(--primary-color);
+  cursor: pointer;
+}
+
+.arrows {
+  fill: #0d6efd;
+}
+
+.arrows:focus,
+.arrows:hover {
+  fill: #0b5ed7;
+}

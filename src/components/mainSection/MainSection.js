@@ -2,9 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as selectors from '../../redux/selectors';
 import * as actions from '../../redux/actions';
 
-import { Col, Button } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';
-import FormCard from '../formCard/FormCard';
+import ChangeBtn from '../changeBtn/ChangeBtn';
+
+import s from './MainSection.module.css';
 
 const MainSection = () => {
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
@@ -19,6 +21,12 @@ const MainSection = () => {
     <>
       <Col md={5}>
         <h3>Сhanging</h3>
+      </Col>
+      <Col md={2}></Col>
+      <Col md={5}>
+        <h3>Geting</h3>
+      </Col>
+      <Col md={5}>
         <ExpenseCard
           selectCurrency={changingCurrency}
           currencyValue={changingValue}
@@ -28,18 +36,11 @@ const MainSection = () => {
           handleValue={value => dispatch(actions.changeFromValue(value))}
         />
       </Col>
-      <Col md={2}>
-        <FormCard>
-          <Button
-            variant="success"
-            onClick={() => dispatch(actions.changeCurrency())}
-          >
-            Change
-          </Button>
-        </FormCard>
+      <Col md={2} className={s.alingBtn}>
+        <ChangeBtn />
       </Col>
+
       <Col md={5}>
-        <h3>Geting</h3>
         <ExpenseCard
           selectCurrency={getingCurrency}
           currencyValue={getingValue}
