@@ -1,5 +1,6 @@
 import { Form } from 'react-bootstrap';
 import FormCard from '../formCard/FormCard';
+// import resp from '../../data/response.json';
 import s from './ExpenseCard.module.css';
 
 const ExpenseCard = ({
@@ -36,3 +37,13 @@ const ExpenseCard = ({
 };
 
 export default ExpenseCard;
+
+//  {
+//    resp.map(element => {
+//      return (
+//        <option key={element.CurrencyCode} value={`${element.CurrencyCodeL}`}>
+//          {element.CurrencyCodeL}
+//        </option>
+//      );
+//    });
+//  }
