@@ -7,25 +7,7 @@ import { Col, Button } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';
 import FormCard from '../formCard/FormCard';
 
-const currencyRate = {
-  EUR: 1,
-  USD: 1.1228,
-  UAH: 32,
-  RUB: 85.3333,
-};
-
-const calculate = (changingCur, getingCur, value) => {
-  const newValue =
-    (currencyRate[getingCur] / currencyRate[changingCur]) * value;
-  return Math.round(newValue * 100) / 100;
-};
-
 const MainSection = () => {
-  // const [fromCurrency, setFromCurrency] = useState('UAH');
-  // const [fromValue, setFromValue] = useState(0);
-  // const [toCurrency, setToCurrency] = useState('UAH');
-  // const [toValue, setToValue] = useState(0);
-
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
   const changingValue = useSelector(selectors.getСhangingValue);
 
