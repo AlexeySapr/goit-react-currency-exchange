@@ -12,7 +12,7 @@ const CurrentRate = () => {
   return (
     <ul className={s.currentList}>
       <li className={s.currentListItem}>
-        <p>Курс</p>
+        <p>NBU exchange rate</p>
         <p>
           1 {changingCurrency} =
           {`${calculate(
@@ -23,7 +23,7 @@ const CurrentRate = () => {
         </p>
       </li>
       <li className={s.currentListItem}>
-        <p>Резерв</p>
+        <p>Reserve</p>
         <p>{`${reserve[getingCurrency]} ${getingCurrency}`}</p>
       </li>
     </ul>

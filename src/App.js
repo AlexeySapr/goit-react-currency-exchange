@@ -17,19 +17,23 @@ import MainSection from './components/mainSection/MainSection';
 const App = () => {
   const getingValue = useSelector(selectors.getGetingValue);
   const getingCurrency = useSelector(selectors.getGetingCurrency);
+  const changingCurrency = useSelector(selectors.getСhangingCurrency);
 
-  const getBtnTitle = value => {
-    if (value === 0) {
+  const getBtnTitle = () => {
+    if (getingValue === 0) {
       return 'Enter the amount';
     }
-    if (value > reserve[getingCurrency]) {
+    if (changingCurrency === getingCurrency) {
+      return 'Change currency';
+    }
+    if (getingValue > reserve[getingCurrency]) {
       return 'Not enough reserve';
     } else {
       return 'Exchange';
     }
   };
 
-  const exchangeBtnTitle = getBtnTitle(getingValue);
+  const exchangeBtnTitle = getBtnTitle();
 
   return (
     <>
@@ -57,7 +61,9 @@ const App = () => {
               <Button
                 variant="primary"
                 disabled={
-                  getingValue === 0 || getingValue > reserve[getingCurrency]
+                  getingValue === 0 ||
+                  getingValue > reserve[getingCurrency] ||
+                  changingCurrency === getingCurrency
                 }
               >
                 {exchangeBtnTitle}
