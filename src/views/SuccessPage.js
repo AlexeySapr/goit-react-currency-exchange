@@ -10,11 +10,15 @@ const SuccessPage = () => {
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
   const getingCurrency = useSelector(selectors.getGetingCurrency);
 
+  const succsessText = `Hooray! You have successfully exchanged ${changingValue} ${changingCurrency} at ${getingValue} ${getingCurrency}`;
+
+  const needExchangeText = `Oops! Go back to do some exchange`;
+
   return (
     <Container>
       <Section>
         <h3 style={{ textAlign: 'center' }}>
-          {`Hooray! You have successfully exchanged ${changingValue} ${changingCurrency} at ${getingValue} ${getingCurrency}`}
+          {getingValue > 0 ? succsessText : needExchangeText}
         </h3>
       </Section>
       <BackBtn />

@@ -1,0 +1,11 @@
+.btnContainer {
+  display: block;
+  margin: 0 auto;
+}
+
+.leftArrow {
+  width: 20px;
+  fill: #fff;
+  vertical-align: text-top;
+  margin-right: 5px;
+}
