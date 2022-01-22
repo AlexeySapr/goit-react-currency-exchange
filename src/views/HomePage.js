@@ -1,10 +1,8 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-
 import { Container, Row } from 'react-bootstrap';
 
-import * as selectors from '../redux/selectors';
-import { reserve } from '../services/reserve';
+import { selectors } from '../reduxData';
+import { reserve } from '../services';
 
 import Section from '../components/section/Section';
 import FormCard from '../components/formCard/FormCard';

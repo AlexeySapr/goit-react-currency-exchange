@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
-import * as selectors from '../../redux/selectors';
-import { calculate } from '../../services/calculate';
-import { reserve } from '../../services/reserve';
+import { selectors } from '../../reduxData';
+import { calculate, reserve } from '../../services';
 
 import s from './CurrentRate.module.css';
 

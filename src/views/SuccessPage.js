@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import * as selectors from '../redux/selectors';
+import { selectors } from '../reduxData';
 import { Container } from 'react-bootstrap';
 import Section from '../components/section/Section';
 import BackBtn from '../components/backBtn/BackBtn';
