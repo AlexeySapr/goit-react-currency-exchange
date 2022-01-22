@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { actions } from '../../reduxData';
+import { actions } from 'reduxData';
 
 import { ReactComponent as ChangeArrows } from '../svgIcons/arrows.svg';
 import s from './ChangeBtn.module.css';

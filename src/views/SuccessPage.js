@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { selectors } from '../reduxData';
+import { selectors } from 'reduxData';
 import { Container } from 'react-bootstrap';
-import Section from '../components/section/Section';
-import BackBtn from '../components/backBtn/BackBtn';
+import Section from 'components/section/Section';
+import BackBtn from 'components/backBtn/BackBtn';
 
 const SuccessPage = () => {
   const changingValue = useSelector(selectors.getСhangingValue);

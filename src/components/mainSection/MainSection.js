@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { selectors, actions } from '../../reduxData';
+import { selectors, actions } from 'reduxData';
 
 import { Col } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';

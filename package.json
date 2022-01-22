@@ -2,7 +2,6 @@
   "name": "goit-react-currency-exchange",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AlexeySapr.github.io/goit-react-currency-exchange",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "bootstrap": "^5.1.3",

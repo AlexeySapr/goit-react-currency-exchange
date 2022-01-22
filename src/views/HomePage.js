@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux';
 import { Container, Row } from 'react-bootstrap';
 
-import { selectors } from '../reduxData';
-import { reserve } from '../services';
+import { selectors } from 'reduxData';
+import { reserve } from 'services';
 
-import Section from '../components/section/Section';
-import FormCard from '../components/formCard/FormCard';
-import CurrentRate from '../components/currentRate/CurrentRate';
-import Title from '../components/title/Title';
-import MainSection from '../components/mainSection/MainSection';
-import LinkBtn from '../components/linkBtn/LinkBtn';
+import Section from 'components/section/Section';
+import FormCard from 'components/formCard/FormCard';
+import CurrentRate from 'components/currentRate/CurrentRate';
+import Title from 'components/title/Title';
+import MainSection from 'components/mainSection/MainSection';
+import LinkBtn from 'components/linkBtn/LinkBtn';
 
 const HomePage = () => {
   const getingValue = useSelector(selectors.getGetingValue);
