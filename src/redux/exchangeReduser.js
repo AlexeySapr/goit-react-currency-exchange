@@ -3,7 +3,7 @@ import * as actions from './actions';
 import { calculate } from '../services/calculate';
 
 const initState = {
-  changingCurrency: 'UAH',
+  changingCurrency: 'USD',
   getingCurrency: 'UAH',
   changingValue: 0,
   getingValue: 0,

@@ -1,17 +1,17 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
+
+import { Container, Row } from 'react-bootstrap';
+
 import * as selectors from '../redux/selectors';
 import { reserve } from '../services/reserve';
 
-import { Container, Row, Button } from 'react-bootstrap';
-
 import Section from '../components/section/Section';
-
 import FormCard from '../components/formCard/FormCard';
 import CurrentRate from '../components/currentRate/CurrentRate';
 import Title from '../components/title/Title';
 import MainSection from '../components/mainSection/MainSection';
+import LinkBtn from '../components/linkBtn/LinkBtn';
 
 const HomePage = () => {
   const getingValue = useSelector(selectors.getGetingValue);
@@ -55,16 +55,14 @@ const HomePage = () => {
         <Row>
           <Section>
             <FormCard>
-              <Button
-                variant="primary"
-                disabled={
+              <LinkBtn
+                btnText={exchangeBtnTitle}
+                isDisabled={
                   getingValue === 0 ||
                   getingValue > reserve[getingCurrency] ||
                   changingCurrency === getingCurrency
                 }
-              >
-                {exchangeBtnTitle}
-              </Button>
+              />
             </FormCard>
           </Section>
         </Row>
