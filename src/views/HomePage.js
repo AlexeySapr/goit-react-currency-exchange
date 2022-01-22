@@ -34,40 +34,38 @@ const HomePage = () => {
 
   const exchangeBtnTitle = getBtnTitle();
   return (
-    <>
-      <Container>
-        <Row>
-          <Section>
-            <CurrentRate />
-          </Section>
-        </Row>
+    <Container>
+      <Row>
+        <Section>
+          <CurrentRate />
+        </Section>
+      </Row>
 
-        <Row>
-          <Section>
-            <Title text={'Exchange values'} />
-          </Section>
-        </Row>
+      <Row>
+        <Section>
+          <Title text={'Exchange values'} />
+        </Section>
+      </Row>
 
-        <Row>
-          <MainSection />
-        </Row>
+      <Row>
+        <MainSection />
+      </Row>
 
-        <Row>
-          <Section>
-            <FormCard>
-              <LinkBtn
-                btnText={exchangeBtnTitle}
-                isDisabled={
-                  getingValue === 0 ||
-                  getingValue > reserve[getingCurrency] ||
-                  changingCurrency === getingCurrency
-                }
-              />
-            </FormCard>
-          </Section>
-        </Row>
-      </Container>
-    </>
+      <Row>
+        <Section>
+          <FormCard>
+            <LinkBtn
+              btnText={exchangeBtnTitle}
+              isDisabled={
+                getingValue === 0 ||
+                getingValue > reserve[getingCurrency] ||
+                changingCurrency === getingCurrency
+              }
+            />
+          </FormCard>
+        </Section>
+      </Row>
+    </Container>
   );
 };
 
