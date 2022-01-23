@@ -7,7 +7,7 @@ const getNowDate = () => {
   const formatMonth = month < 10 ? '0' + month : month;
   const year = now.getFullYear();
 
-  const formatedDate = '' + formatDay + formatMonth + year;
+  const formatedDate = '' + year + formatMonth + formatDay;
   return formatedDate;
 };
 
