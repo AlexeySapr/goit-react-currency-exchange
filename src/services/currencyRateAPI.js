@@ -9,7 +9,14 @@ export const currencyRateApi = createApi({
 
   endpoints: builder => ({
     getCurrencyRate: builder.query({
-      query: date => `exchange?date=${date}&json`,
+      // query: date => `exchange?date=${date}&json`,
+      query: date => ({
+        url: `exchange`,
+        params: {
+          date: date,
+          json: true,
+        },
+      }),
     }),
   }),
 });

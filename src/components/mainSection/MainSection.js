@@ -1,7 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectors, actions } from 'reduxData';
-import { useGetCurrencyRateQuery } from 'services/currencyRateAPI';
-import getNowDate from 'services/getNowDate';
 
 import { Col } from 'react-bootstrap';
 import ExpenseCard from '../expenseCard/ExpenseCard';
@@ -15,8 +13,6 @@ const MainSection = () => {
 
   const getingCurrency = useSelector(selectors.getGetingCurrency);
   const getingValue = useSelector(selectors.getGetingValue);
-
-  const { data, error, isLoading } = useGetCurrencyRateQuery(getNowDate());
 
   const dispatch = useDispatch();
 

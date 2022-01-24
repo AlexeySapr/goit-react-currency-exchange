@@ -11,4 +11,6 @@ const getNowDate = () => {
   return formatedDate;
 };
 
-export default getNowDate;
+const nowDate = getNowDate();
+
+export default nowDate;

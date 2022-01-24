@@ -1,6 +1,8 @@
 import { Form } from 'react-bootstrap';
+// import { useGetCurrencyRateQuery } from 'services/currencyRateAPI';
+// import nowDate from 'services/getNowDate';
+
 import FormCard from '../formCard/FormCard';
-// import resp from '../../data/response.json';
 import s from './ExpenseCard.module.css';
 
 const ExpenseCard = ({
@@ -9,6 +11,9 @@ const ExpenseCard = ({
   handleCurrency,
   handleValue,
 }) => {
+  // const { data } = useGetCurrencyRateQuery(nowDate);
+  // console.log('data: ', data);
+
   return (
     <FormCard>
       <div className={s.formBox}>
@@ -18,6 +23,11 @@ const ExpenseCard = ({
           onChange={event => handleCurrency(event.target.value)}
           value={selectCurrency}
         >
+          {/* {data.map(cur => (
+            <option key={cur.cc} value={cur.cc}>
+              {cur.cc}
+            </option>
+          ))} */}
           <option value="UAH">UAH</option>
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>
