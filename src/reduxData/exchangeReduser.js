@@ -9,12 +9,26 @@ const initState = {
   changingValue: 0,
   getingValue: 0,
   currencyRate: {},
+  error: null,
+  isLoading: false,
 };
 
 const exchangeReduser = createReducer(initState, {
+  [fetchCurrencyRate.pending]: state => ({
+    ...state,
+    isLoading: true,
+  }),
+
   [fetchCurrencyRate.fulfilled]: (state, { payload }) => ({
     ...state,
     currencyRate: payload,
+    isLoading: false,
+  }),
+
+  [fetchCurrencyRate.rejected]: (state, { payload }) => ({
+    ...state,
+    error: payload,
+    isLoading: false,
   }),
 
   [actions.changeFromCurrency]: (state, { payload }) => ({

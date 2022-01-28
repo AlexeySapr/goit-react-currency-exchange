@@ -14,12 +14,18 @@ const formatCurrency = curArray => {
 
 export const fetchCurrencyRate = createAsyncThunk(
   'exchange/fetchCurrencyRate',
-  async () => {
-    const response = await fetch(
-      `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${nowDate}&json`,
-    );
-    const data = await response.json();
-    const transformData = formatCurrency(data);
-    return transformData;
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `https://bank.gov.ua/wNBUStatService/v1/statdirectory/exchange?date=${nowDate}&json`,
+      );
+      const data = await response.json();
+      const transformData = formatCurrency(data);
+      return transformData;
+    } catch (error) {
+      return rejectWithValue(
+        'Something went wrong :( The server is not responding',
+      );
+    }
   },
 );
