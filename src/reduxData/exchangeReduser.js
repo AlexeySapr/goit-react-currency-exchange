@@ -1,25 +1,38 @@
 import { createReducer } from '@reduxjs/toolkit';
 import * as actions from './actions';
 import { calculate } from 'services';
+import { fetchCurrencyRate } from './operations';
 
 const initState = {
   changingCurrency: 'USD',
   getingCurrency: 'UAH',
   changingValue: 0,
   getingValue: 0,
+  currencyRate: {},
 };
 
 const exchangeReduser = createReducer(initState, {
+  [fetchCurrencyRate.fulfilled]: (state, { payload }) => ({
+    ...state,
+    currencyRate: payload,
+  }),
+
   [actions.changeFromCurrency]: (state, { payload }) => ({
     ...state,
     changingCurrency: payload,
-    getingValue: calculate(payload, state.getingCurrency, state.changingValue),
+    getingValue: calculate(
+      state.currencyRate,
+      payload,
+      state.getingCurrency,
+      state.changingValue,
+    ),
   }),
 
   [actions.changeToCurrency]: (state, { payload }) => ({
     ...state,
     getingCurrency: payload,
     getingValue: calculate(
+      state.currencyRate,
       state.changingCurrency,
       payload,
       state.changingValue,
@@ -30,6 +43,7 @@ const exchangeReduser = createReducer(initState, {
     ...state,
     changingValue: payload,
     getingValue: calculate(
+      state.currencyRate,
       state.changingCurrency,
       state.getingCurrency,
       payload,
@@ -40,6 +54,7 @@ const exchangeReduser = createReducer(initState, {
     ...state,
     getingValue: payload,
     changingValue: calculate(
+      state.currencyRate,
       state.getingCurrency,
       state.changingCurrency,
       payload,
@@ -55,6 +70,7 @@ const exchangeReduser = createReducer(initState, {
       changingCurrency: tempGetingCurrency,
       getingCurrency: tempChangingCurrency,
       getingValue: calculate(
+        state.currencyRate,
         tempGetingCurrency,
         tempChangingCurrency,
         state.changingValue,

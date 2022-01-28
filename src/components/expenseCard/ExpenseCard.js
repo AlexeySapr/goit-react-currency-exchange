@@ -1,6 +1,6 @@
+import { useSelector } from 'react-redux';
 import { Form } from 'react-bootstrap';
-// import { useGetCurrencyRateQuery } from 'services/currencyRateAPI';
-// import nowDate from 'services/getNowDate';
+import { selectors } from 'reduxData';
 
 import FormCard from '../formCard/FormCard';
 import s from './ExpenseCard.module.css';
@@ -11,8 +11,12 @@ const ExpenseCard = ({
   handleCurrency,
   handleValue,
 }) => {
-  // const { data } = useGetCurrencyRateQuery(nowDate);
-  // console.log('data: ', data);
+  const currencyRate = useSelector(selectors.getCurrencyRate);
+
+  let currencies = [];
+  for (const currency in currencyRate) {
+    currencies.push(currency);
+  }
 
   return (
     <FormCard>
@@ -23,15 +27,11 @@ const ExpenseCard = ({
           onChange={event => handleCurrency(event.target.value)}
           value={selectCurrency}
         >
-          {/* {data.map(cur => (
-            <option key={cur.cc} value={cur.cc}>
-              {cur.cc}
+          {currencies.map(currency => (
+            <option key={currency} value={currency}>
+              {currency}
             </option>
-          ))} */}
-          <option value="UAH">UAH</option>
-          <option value="EUR">EUR</option>
-          <option value="USD">USD</option>
-          <option value="RUB">RUB</option>
+          ))}
         </Form.Select>
 
         <Form.Control
@@ -47,13 +47,3 @@ const ExpenseCard = ({
 };
 
 export default ExpenseCard;
-
-//  {
-//    resp.map(element => {
-//      return (
-//        <option key={element.CurrencyCode} value={`${element.CurrencyCodeL}`}>
-//          {element.CurrencyCodeL}
-//        </option>
-//      );
-//    });
-//  }
