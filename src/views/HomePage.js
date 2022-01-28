@@ -10,18 +10,14 @@ import CurrentRate from 'components/currentRate/CurrentRate';
 import Title from 'components/title/Title';
 import MainSection from 'components/mainSection/MainSection';
 import LinkBtn from 'components/linkBtn/LinkBtn';
-// import LoadSpiner from 'components/loadSpiner/LoadSpiner';
-
-// import { currencyAxiosRate } from '../services/currencyRate';
-
-// console.log('currencyAxiosRate: ', currencyAxiosRate);
+import LoadSpiner from 'components/loadSpiner/LoadSpiner';
 
 const HomePage = () => {
   const getingValue = useSelector(selectors.getGetingValue);
   const getingCurrency = useSelector(selectors.getGetingCurrency);
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
-
-  // const { error, isFetching } = useGetCurrencyRateQuery(nowDate);
+  const isFetching = useSelector(selectors.getIsLoading);
+  const error = useSelector(selectors.getError);
 
   const getBtnTitle = () => {
     if (getingValue === 0) {
@@ -38,10 +34,8 @@ const HomePage = () => {
   };
   const exchangeBtnTitle = getBtnTitle();
 
-  // const loader = isFetching && <LoadSpiner />;
-  // const errorData = error && <div>{error.error}</div>;
-  const loader = false;
-  const errorData = false;
+  const loader = isFetching && <LoadSpiner />;
+  const errorData = error && <div>{error}</div>;
 
   return (
     <>

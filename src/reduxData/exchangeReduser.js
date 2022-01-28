@@ -10,7 +10,7 @@ const initState = {
   getingValue: 0,
   currencyRate: {},
   error: null,
-  isLoading: false,
+  isLoading: true,
 };
 
 const exchangeReduser = createReducer(initState, {

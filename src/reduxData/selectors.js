@@ -6,10 +6,15 @@ const getGetingValue = state => state.currencyExchange.getingValue;
 
 const getCurrencyRate = state => state.currencyExchange.currencyRate;
 
+const getIsLoading = state => state.currencyExchange.isLoading;
+const getError = state => state.currencyExchange.error;
+
 export {
   getСhangingCurrency,
   getСhangingValue,
   getGetingCurrency,
   getGetingValue,
   getCurrencyRate,
+  getIsLoading,
+  getError,
 };

@@ -7,6 +7,7 @@ import s from './CurrentRate.module.css';
 const CurrentRate = () => {
   const changingCurrency = useSelector(selectors.getСhangingCurrency);
   const getingCurrency = useSelector(selectors.getGetingCurrency);
+  const currencyRate = useSelector(selectors.getCurrencyRate);
 
   return (
     <ul className={s.currentList}>
@@ -15,6 +16,7 @@ const CurrentRate = () => {
         <p>
           1 {changingCurrency} =
           {`${calculate(
+            currencyRate,
             changingCurrency,
             getingCurrency,
             1,
