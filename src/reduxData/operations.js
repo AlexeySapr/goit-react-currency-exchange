@@ -17,7 +17,7 @@ export const fetchCurrencyRate = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `https://bank.gov.ua/wNBUStatService/v1/statdirectory/exchange?date=${nowDate}&json`,
+        `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${nowDate}&json`,
       );
       const data = await response.json();
       const transformData = formatCurrency(data);
