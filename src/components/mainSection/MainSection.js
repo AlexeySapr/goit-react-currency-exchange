@@ -18,13 +18,15 @@ const MainSection = () => {
 
   return (
     <>
-      <Col md={5}>
-        <h3>Сhanging</h3>
-      </Col>
-      <Col md={2}></Col>
-      <Col md={5}>
-        <h3>Geting</h3>
-      </Col>
+      <div className={s.alingTitles}>
+        <Col md={5}>
+          <h3>Сhanging</h3>
+        </Col>
+        <Col md={2}></Col>
+        <Col md={5}>
+          <h3>Geting</h3>
+        </Col>
+      </div>
       <Col md={5}>
         <ExpenseCard
           selectCurrency={changingCurrency}
