@@ -12,11 +12,7 @@ const ExpenseCard = ({
   handleValue,
 }) => {
   const currencyRate = useSelector(selectors.getCurrencyRate);
-
-  let currencies = [];
-  for (const currency in currencyRate) {
-    currencies.push(currency);
-  }
+  const currencies = Object.keys(currencyRate);
 
   return (
     <FormCard>
