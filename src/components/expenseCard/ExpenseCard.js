@@ -34,7 +34,8 @@ const ExpenseCard = ({
           type="number"
           min={0}
           size="lg"
-          value={currencyValue}
+          placeholder="0"
+          value={currencyValue !== 0 ? currencyValue : ''}
           onChange={event => handleValue(event.target.value)}
         />
       </div>
